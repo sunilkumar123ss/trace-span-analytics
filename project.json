@@ -1,0 +1,11 @@
+{
+  "slug": "trace-span-analytics",
+  "title": "Trace span analytics",
+  "description": "Validate nested trace spans and compute root latency percentiles, service error counts and exclusive durations without double-subtracting overlapping child spans.",
+  "category": "evaluation",
+  "demo_args": [
+    "--input",
+    "example.json"
+  ],
+  "expected_exit": 0
+}
