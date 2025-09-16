@@ -14,3 +14,7 @@ class TraceTests(unittest.TestCase):
         self.assertEqual(result["services"]["demo"]["errors"], 1)
         self.assertEqual(union_duration([(0, 2), (2, 3), (5, 6)]), 4)
 
+    def test_zero_length_and_percentile(self):
+        result = analyze([span("root", None, 0, 0)])
+        self.assertEqual(result["root_latency_ms"]["p95_nearest_rank"], 0)
+
