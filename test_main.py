@@ -18,3 +18,9 @@ class TraceTests(unittest.TestCase):
         result = analyze([span("root", None, 0, 0)])
         self.assertEqual(result["root_latency_ms"]["p95_nearest_rank"], 0)
 
+    def test_cycle_and_orphan(self):
+        with self.assertRaisesRegex(ValueError, "cycle"):
+            analyze([span("root", None, 0, 10), span("a", "b", 0, 5), span("b", "a", 0, 5)])
+        with self.assertRaisesRegex(ValueError, "missing parent"):
+            analyze([span("root", None, 0, 10), span("a", "missing", 1, 2)])
+

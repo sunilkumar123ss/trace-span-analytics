@@ -4,7 +4,7 @@ This reference implementation and all of the following milestone commits were pr
 
 **Every recorded author and committer date in this timeline is synthetic. These dates are not evidence that the code was written, tested, deployed, or used professionally in the past.**
 
-This snapshot is milestone 7 of 12. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
+This snapshot is milestone 8 of 12. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
 
 The progression decomposes already-completed October 2026 code into meaningful additions. It is not recovered original development history. Publication time is separate from the synthetic Git timestamps.
 
@@ -19,7 +19,7 @@ The progression decomposes already-completed October 2026 code into meaningful a
 | 5 | 2024-08-31T09:13:30+05:30 | Expose the command-line demonstration and input handling (present) |
 | 6 | 2025-07-22T15:09:42+05:30 | Test overlapping children are not double subtracted (present) |
 | 7 | 2025-09-16T15:16:04+05:30 | Test zero length and percentile (present) |
-| 8 | 2025-12-03T09:56:52+05:30 | Test cycle and orphan (later stage) |
+| 8 | 2025-12-03T09:56:52+05:30 | Test cycle and orphan (present) |
 | 9 | 2026-02-08T15:24:18+05:30 | Test invalid child interval (later stage) |
 | 10 | 2026-04-07T12:26:40+05:30 | Add one-command test, demonstration and CLI verification (later stage) |
 | 11 | 2026-05-30T19:50:55+05:30 | Run verification on the supported Python CI matrix (later stage) |
