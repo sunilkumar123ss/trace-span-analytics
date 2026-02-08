@@ -24,3 +24,10 @@ class TraceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "missing parent"):
             analyze([span("root", None, 0, 10), span("a", "missing", 1, 2)])
 
+    def test_invalid_child_interval(self):
+        with self.assertRaisesRegex(ValueError, "outside parent"):
+            analyze([span("root", None, 0, 10), span("a", "root", 9, 11)])
+
+
+if __name__ == "__main__":
+    unittest.main()
