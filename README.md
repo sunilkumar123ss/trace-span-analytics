@@ -1,11 +1,24 @@
 # Trace span analytics
 
-> **Disclosed reconstruction prepared on 24 October 2026.** The recorded Git dates are synthetic, not dates of past development. See [HISTORY.md](HISTORY.md).
+Inspect synthetic or exported nested trace spans without a telemetry backend. Computes root latency percentiles, error counts, service duration aggregates, and each span's exclusive time.
 
-This is an incomplete stage in a tutorial reconstruction of an already-completed reference implementation. Source, fixtures, tests, command-line behavior and verification are introduced in later stages. Only the final branch tip contains the complete documented package.
+~~~sh
+python3 main.py --input example.json
+python3 -m unittest -v
+~~~
 
-## Intended scope of the final example
+Exclusive time subtracts the union of immediate-child intervals, so overlapping children are not subtracted twice. Traces require one root, unique span IDs, resolvable parents, no cycles, and child intervals contained in their parents. Cross-trace parent links and distributed clock skew are unsupported.
 
-Validate nested trace spans and compute root latency percentiles, service error counts and exclusive durations without double-subtracting overlapping child spans.
+Percentiles use nearest rank. Service inclusive totals may double-count nested/parallel work and are not elapsed request latency or CPU utilization. No OpenTelemetry collector, tracing SDK, model call, or production latency benchmark is included.
 
-All examples are synthetic and educational. This reconstruction does not establish historical employment, deployment, usage, or production benchmarks.
+## Scope
+
+This is an educational implementation with synthetic fixtures. Run the tests and inspect the documented limits before adapting it.
+
+## Repository checks
+
+```sh
+python3 verify.py
+```
+
+This runs the isolated test suite, synthetic example, and CLI help. The included GitHub Actions workflow repeats these checks when the repository is published. No hosted CI result is claimed by the local verification report.
